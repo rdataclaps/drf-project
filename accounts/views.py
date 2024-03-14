@@ -4,6 +4,8 @@ from rest_framework import status
 from rest_framework import viewsets
 from .models import User
 from .serializers import UserSerializer
+from rest_framework.decorators import action
+
 
 
 # Create your views here.
@@ -11,4 +13,10 @@ class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    
+    @action(detail=False, methods=['post'])
+    def register(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
