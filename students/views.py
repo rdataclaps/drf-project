@@ -9,4 +9,4 @@ class StudentViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
 
 def home(request):
-    return HttpResponse({"message":"Hello Word"})
+    return HttpResponse({"message":"Hello Word Python"})
