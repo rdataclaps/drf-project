@@ -8,5 +8,10 @@ class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentSerializer
 
+    
 def home(request):
     return render(request, 'resume.html')
+
+
+def student(request):
+    return render(request, 'students.html')
