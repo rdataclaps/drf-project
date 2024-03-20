@@ -6,6 +6,11 @@
     <title>Students</title>
 </head>
 <body>
-    
+    <h3>All Students List</h3>
+    <ul>
+        {% for student in students %}
+            <li>{{ student.name }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

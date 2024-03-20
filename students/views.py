@@ -14,4 +14,5 @@ def home(request):
 
 
 def student(request):
-    return render(request, 'students.html')
+    students=Student.objects.all()
+    return render(request, 'students.html', {'students':students})
