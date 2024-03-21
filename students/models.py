@@ -6,7 +6,13 @@ class Student(models.Model):
     roll =  models.IntegerField()
     city = models.CharField(max_length =255)
 
+    def __str__(self):
+        return f"{self.name}"
+
 class Teacher(models.Model):
     name = models.CharField(max_length = 255, null=False)
     Subject = models.CharField(max_length = 255, null=False)
     joining_date =  models.DateField()
+
+    def __str__(self):
+        return f"{self.name}"
