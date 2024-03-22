@@ -1,6 +1,6 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from rest_framework import viewsets
-from .models import Student
+from .models import Student, Teacher
 from .serializer import StudentSerializer
 from django.shortcuts import render
 from rest_framework.response import Response
@@ -40,6 +40,13 @@ class StudentViewSet(viewsets.ModelViewSet):
         instance = self.get_object()
         instance.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+
+
+def get_teacher(request):
+    teachers = Teacher.objects.all()
+    teacher_data = [{'id': teacher.id, 'name': teacher.name} for teacher in teachers]
+    return JsonResponse({'teachers': teacher_data})
 
 
     
