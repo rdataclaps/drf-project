@@ -10,5 +10,4 @@ urlpatterns = [
     path('', include(router.urls)),
     path('home/',views.home, name='home'),
     path('student/',views.student, name='student'),
-    path('index/',views.index, name='index')
 ]
