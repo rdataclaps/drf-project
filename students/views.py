@@ -16,3 +16,6 @@ def home(request):
 def student(request):
     students=Student.objects.all()
     return render(request, 'students.html', {'students':students})
+
+def index(request):
+    return HttpResponse("Hello World")
