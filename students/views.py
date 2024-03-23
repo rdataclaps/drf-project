@@ -12,6 +12,7 @@ class StudentViewSet(viewsets.ModelViewSet):
     serializer_class = StudentSerializer
 
     def create(self, request, *args, **kwargs):
+        '''By this function we will be able to add new student.'''
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
