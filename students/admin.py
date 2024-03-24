@@ -2,6 +2,10 @@ from django.contrib import admin
 from .models import Student, Teacher
 # Register your models here.
 
-admin.site.register(Student)
-admin.site.register(Teacher)
+@admin.register(Student)
+class StudentModel(admin.ModelAdmin):
+    list_display = ['id', 'name', 'roll', 'city']
 
+@admin.register(Teacher)
+class TeacherModel(admin.ModelAdmin):
+    list_display = ['id', 'name', 'Subject', 'joining_date']
