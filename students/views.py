@@ -56,6 +56,10 @@ def home(request):
 
 
 def student(request):
-    students=Student.objects.filter().order_by('name')
-    return render(request, 'students.html', {'students':students})
+    students=Student.objects.all().count()
+    print("=================")
+    print(students)
+    return JsonResponse({'No of students': students})
+
+    # return render(request, 'students.html', {'students':students})
 
