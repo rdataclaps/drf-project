@@ -57,9 +57,12 @@ def home(request):
 
 def student(request):
     students=Student.objects.all().count()
-    print("=================")
-    print(students)
-    return JsonResponse({'No of students': students})
+    ordered_data = Student.objects.all().order_by('name')
+    serializer = StudentSerializer(ordered_data, many=True)
+    serialized_data = serializer.data
+    
+    return JsonResponse({'No of students': students, 'ordered_data': serialized_data})
 
+    
     # return render(request, 'students.html', {'students':students})
 
