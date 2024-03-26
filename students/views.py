@@ -45,7 +45,7 @@ class StudentViewSet(viewsets.ModelViewSet):
 
 
 def get_teacher(request):
-    teachers = Teacher.objects.all()
+    teachers = Teacher.objects.filter(name="Deepak")
     teacher_data = [{'id': teacher.id, 'name': teacher.name, 'Subject':teacher.Subject} for teacher in teachers]
     return JsonResponse({'teachers': teacher_data})
 
