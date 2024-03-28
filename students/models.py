@@ -11,7 +11,7 @@ class Student(models.Model):
 
 class Teacher(models.Model):
     name = models.CharField(max_length = 255, null=False)
-    Subject = models.CharField(max_length = 255, null=False)
+    subject = models.CharField(max_length = 255, null=False)
     joining_date =  models.DateField()
 
     def __str__(self):

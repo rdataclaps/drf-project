@@ -56,7 +56,7 @@ def home(request):
 
 
 def student(request):
-    students=Student.objects.all().count()
+    students=Student.objects.all().count() 
     ordered_data = Student.objects.all().order_by('name')
     serializer = StudentSerializer(ordered_data, many=True)
     new_data= Student.objects.get(id =3)

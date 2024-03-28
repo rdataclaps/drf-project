@@ -8,4 +8,4 @@ class StudentModel(admin.ModelAdmin):
 
 @admin.register(Teacher)
 class TeacherModel(admin.ModelAdmin):
-    list_display = ['id', 'name', 'Subject', 'joining_date']
+    list_display = ['id', 'name', 'subject', 'joining_date']
